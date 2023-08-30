@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src=" https://js.zohostatic.com/creator/widgets/version/1.0/widgetsdk-min.js"></script>
+<style>
+  /* Add your CSS styling here */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  form {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+  <h2>Student Data</h2>
+  <table>
+    <tr>
+      <th>Student ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Date of Birth</th>
+      <th>Grade</th>
+      <th>Mentor</th>
+    </tr>
+    
+    <!-- Repeat similar rows for other students -->
+    <!-- ... -->
+  </table>
+
+  <h2>Add New Student</h2>
+  <form id="studentForm">
+    <label for="studentId">Student ID:</label>
+    <input type="text" id="studentId" name="studentId"><br>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName"><br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName"><br>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob"><br>
+    <label for="grade">Grade:</label>
+    <input type="text" id="grade" name="grade"><br>
+    <label for="mentor">Mentor:</label>
+    <input type="text" id="mentor" name="mentor"><br>
+    <button type="button" onclick="addStudent()">Add Student</button>
+  </form>
+
+  <script>
+    function addStudent() {
+      // Get values from the form
+      var studentId = document.getElementById("studentId").value;
+      var firstName = document.getElementById("firstName").value;
+      var lastName = document.getElementById("lastName").value;
+      var dob = document.getElementById("dob").value;
+      var grade = document.getElementById("grade").value;
+      var mentor = document.getElementById("mentor").value;
+
+      // Add new row to the table
+      var newRow = document.createElement("tr");
+      newRow.innerHTML = `
+        <td>${studentId}</td>
+        <td>${firstName}</td>
+        <td>${lastName}</td>
+        <td>${dob}</td>
+        <td>${grade}</td>
+        <td>${mentor}</td>
+      `;
+
+      // Append the new row to the table
+      var table = document.querySelector("table");
+      table.appendChild(newRow);
+
+      // Clear the form fields
+      document.getElementById("studentId").value = "";
+      document.getElementById("firstName").value = "";
+      document.getElementById("lastName").value = "";
+      document.getElementById("dob").value = "";
+      document.getElementById("grade").value = "";
+      document.getElementById("mentor").value = "";
+    }
+  </script src="script.js"></script>
+</body>
+</html>
